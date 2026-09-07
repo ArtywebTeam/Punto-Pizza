@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUNTO PIZZA 3 — Sarezzo · Forno a legna</title>
+  
+  <meta name="description" content="PUNTO PIZZA 3 — Sarezzo (BS). Forno a legna, pizza artigianale e kebab. Il punto d'incontro tra fuoco e farina." />
+  <meta property="og:title" content="PUNTO PIZZA 3 — Sarezzo" />
+  <meta property="og:description" content="Forno a legna, pizza artigianale e kebab a Sarezzo (BS)." />
+  <meta property="og:type" content="restaurant" />
+  
+  <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg" />
+  
+  <!-- Google Fonts Preconnect & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= Site Header / Navigation ================= -->
+  <header id="site-header" class="site-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" aria-label="PUNTO PIZZA 3">
+        <div class="logo-img-wrapper">
+          <img src="assets/images/logo.jpg" alt="PUNTO PIZZA 3 Logo" />
+        </div>
+        <div>
+          <span class="brand-text-title">PUNTO <span class="text-ember">PIZZA</span> <span class="text-ember">3</span></span>
+          <span class="brand-text-sub">Sarezzo · Forno a legna</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation">
+        <a href="#identita" class="nav-link" data-i18n="nav.identity">La Nostra Arte</a>
+        <a href="#specialita" class="nav-link" data-i18n="nav.specialties">Specialità</a>
+        <a href="#menu" class="nav-link" data-i18n="nav.menu">Menu</a>
+        <a href="#recensioni" class="nav-link" data-i18n="nav.reviews">Recensioni</a>
+        <a href="#dove" class="nav-link" data-i18n="nav.location">Dove Siamo</a>
+      </nav>
+
+      <!-- Header Action Controls -->
+      <div class="nav-actions">
+        <!-- Language Switcher (IT / EN) -->
+        <div class="lang-switcher" role="group" aria-label="Language selector">
+          <button id="lang-it-btn" class="lang-btn active" onclick="setLanguage('it')">IT</button>
+          <button id="lang-en-btn" class="lang-btn" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark mode" onclick="toggleTheme()">
+          <!-- Sun Icon (Light Mode) -->
+          <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (Dark Mode) -->
+          <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Reserve CTA Button (Desktop) -->
+        <a href="#contatti" class="btn-nav-reserve">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2c-4.97 0-9 4.03-9 9 0 3.92 2.51 7.24 6.04 8.48.24.08.48.16.74.21.23.05.47.09.72.12.5.06 1 .09 1.5.09s1-.03 1.5-.09c.25-.03.49-.07.72-.12.26-.05.5-.13.74-.21C18.49 18.24 21 14.92 21 11c0-4.97-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7 0-2.84 1.7-5.28 4.14-6.38.35.88.89 1.67 1.57 2.31C11.39 7.6 12 8.73 12 10c0 1.66-1.34 3-3 3-.35 0-.69-.07-1-.18C8.36 14.81 10.01 16 12 16c2.21 0 4-1.79 4-4 0-.82-.25-1.58-.68-2.22.42-.51.72-1.12.87-1.79 1.13.88 1.81 2.25 1.81 3.79 0 3.87-3.13 7-7 7z"/>
+          </svg>
+          <span data-i18n="nav.reserveBtn">Prenota</span>
+        </a>
+
+        <!-- Mobile Burger Menu Button -->
+        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Open mobile menu" onclick="toggleMobileMenu()">
+          <svg id="burger-open-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="burger-close-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+      <nav>
+        <a href="#identita" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.identity">La Nostra Arte</a>
+        <a href="#specialita" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.specialties">Specialità</a>
+        <a href="#menu" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.menu">Menu</a>
+        <a href="#recensioni" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.reviews">Recensioni</a>
+        <a href="#dove" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.location">Dove Siamo</a>
+        <a href="#contatti" class="mobile-nav-link" onclick="closeMobileMenu()" data-i18n="nav.contact">Contatti</a>
+      </nav>
+      <a href="tel:0305230993" class="btn-mobile-call">030 523 0993</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= Hero Section ================= -->
+    <section class="hero-section">
+      <div class="hero-video-bg">
+        <video autoplay muted loop playsinline poster="assets/images/margherita.jpg">
+          <source src="assets/videos/hero.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-grain grain"></div>
+
+      <div class="hero-content">
+        <!-- Kicker Badge -->
+        <div class="hero-kicker-badge">
+          <!-- Flame SVG -->
+          <svg width="14" height="14" fill="var(--ember)" viewBox="0 0 24 24">
+            <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.14 2.82-7.62 6.74-8.65.41-.11.83.13.94.54.11.41-.13.83-.54.94C6.88 7.42 4.75 10.45 4.75 14c0 4 3.25 7.25 7.25 7.25s7.25-3.25 7.25-7.25c0-1.89-.73-3.66-2.06-4.99-.31-.31-.31-.82 0-1.13.31-.31.82-.31 1.13 0C19.98 9.53 20.75 11.69 20.75 14c0 4.97-4.03 9-8.75 9z"/>
+          </svg>
+          <span data-i18n="hero.kicker">Forno a legna · Sarezzo (BS)</span>
+        </div>
+
+        <!-- Hero Title -->
+        <h1 class="hero-title" data-i18n="hero.title">Il punto d'incontro tra fuoco e farina</h1>
+        
+        <!-- Hero Subtitle -->
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Pizza artigianale, kebab e calzoni cotti nel forno a legna. Impasti a lunga lievitazione, ingredienti veri, prezzi onesti.
+        </p>
+
+        <!-- Hero CTA Buttons -->
+        <div class="hero-actions">
+          <a href="https://www.justeat.it/restaurants-punto-pizza-3-sarezzo-25068/menu" target="_blank" rel="noreferrer" class="btn-hero-primary ember-glow">
+            <!-- Shopping Bag SVG -->
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span data-i18n="hero.order">Ordina ora</span>
+          </a>
+          <a href="https://wa.me/393896254460?text=Ciao%20PUNTO%20PIZZA%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noreferrer" class="btn-hero-secondary">
+            <!-- WhatsApp SVG -->
+            <svg width="18" height="18" fill="#2d5a27" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+            </svg>
+            <span data-i18n="hero.reserve">Prenota un tavolo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Scroll Down Indicator -->
+      <a href="#identita" class="hero-scroll-btn" aria-label="Scroll to content">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ================= Section Identité / Arte ================= -->
+    <section id="identita" class="section-padding fade-in-section">
+      <div class="container">
+        <div class="identity-grid">
+          
+          <!-- Text Content & 3 Key Points -->
+          <div>
+            <span class="kicker" data-i18n="identity.kicker">La nostra arte</span>
+            <h2 class="section-title" data-i18n="identity.title">Materia, tempo e fuoco</h2>
+            <p class="section-subtitle" data-i18n="identity.body">
+              Ogni pizza nasce da un impasto ad alta idratazione, fatto riposare per ore. Lavorato a mano, cotto nel forno a legna. Niente scorciatoie: solo farina, acqua, sale e pazienza.
+            </p>
+
+            <div class="identity-points">
+              <!-- Point 1: 48h -->
+              <div class="point-card">
+                <div class="point-icon-box">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="point-title" data-i18n="identity.points.0.t">48 ore di lievitazione</p>
+                  <p class="point-desc" data-i18n="identity.points.0.d">Impasti ad alta idratazione, digeribili e leggeri.</p>
+                </div>
+              </div>
+
+              <!-- Point 2: Forno a legna -->
+              <div class="point-card">
+                <div class="point-icon-box">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.14 2.82-7.62 6.74-8.65.41-.11.83.13.94.54.11.41-.13.83-.54.94C6.88 7.42 4.75 10.45 4.75 14c0 4 3.25 7.25 7.25 7.25s7.25-3.25 7.25-7.25c0-1.89-.73-3.66-2.06-4.99-.31-.31-.31-.82 0-1.13.31-.31.82-.31 1.13 0C19.98 9.53 20.75 11.69 20.75 14c0 4.97-4.03 9-8.75 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="point-title" data-i18n="identity.points.1.t">Forno a legna</p>
+                  <p class="point-desc" data-i18n="identity.points.1.d">Cottura ad alta temperatura per il caratteristico cornicione maculato.</p>
+                </div>
+              </div>
+
+              <!-- Point 3: Senza glutine -->
+              <div class="point-card">
+                <div class="point-icon-box">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="point-title" data-i18n="identity.points.2.t">Anche senza glutine</p>
+                  <p class="point-desc" data-i18n="identity.points.2.d">Opzione senza glutine disponibile su richiesta.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Showcase with PIP & 48h Badge -->
+          <div class="identity-media-wrapper">
+            <div class="video-card-main">
+              <video autoplay muted loop playsinline poster="assets/images/calzone-filling.jpg">
+                <source src="assets/videos/dough1.mp4" type="video/mp4" />
+              </video>
+              <div class="video-card-main-overlay"></div>
+            </div>
+            
+            <div class="video-card-pip">
+              <video autoplay muted loop playsinline poster="assets/images/margherita.jpg">
+                <source src="assets/videos/dough2.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="badge-floating-lievitazione ember-glow">
+              <span class="hours" data-i18n="identity.badgeHours">48h</span>
+              <span class="sub" data-i18n="identity.badgeSub">lievitazione</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Spécialités Signature ================= -->
+    <section id="specialita" class="section-padding bg-alt fade-in-section">
+      <div class="container">
+        <div>
+          <span class="kicker" data-i18n="signature.kicker">Le nostre specialità</span>
+          <h2 class="section-title" data-i18n="signature.title">Piatti che raccontano la casa</h2>
+          <p class="section-subtitle" data-i18n="signature.subtitle">
+            Dalla classica Margherita ai frutti di mare, dai calzoni al kebab al forno.
+          </p>
+        </div>
+
+        <div id="specialties-cards-container" class="specialties-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Menu ================= -->
+    <section id="menu" class="section-padding fade-in-section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="kicker" data-i18n="menu.kicker">Il listino</span>
+          <h2 class="section-title" data-i18n="menu.title">Il menu</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;" data-i18n="menu.subtitle">
+            Tutte le pizze, i calzoni e le specialità. Clicca una categoria per aprire la cartella.
+          </p>
+        </div>
+
+        <!-- Menu Categories Accordion -->
+        <div id="menu-accordion-container" class="menu-accordion-container">
+          <!-- Dynamically rendered via JS -->
+        </div>
+
+        <!-- Menu Bottom Actions & Printed Menu Preview -->
+        <div class="menu-bottom-cta">
+          <div class="gf-badge">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m-6-6l6 6 6-6M9 9l3-3 3 3" />
+            </svg>
+            <span data-i18n="menu.gf">Senza glutine</span>
+          </div>
+
+          <div class="menu-printed-card" onclick="openLightbox('assets/images/menu-printed.jpg')" title="Click to enlarge printed menu">
+            <img src="assets/images/menu-printed.jpg" alt="Menu PUNTO PIZZA stampato" />
+          </div>
+          <span class="menu-view-label" data-i18n="menu.viewImage">Vedi menu stampato</span>
+
+          <a href="https://www.justeat.it/restaurants-punto-pizza-3-sarezzo-25068/menu" target="_blank" rel="noreferrer" class="btn-menu-justeat">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span data-i18n="menu.orderJustEat">Ordina su Just Eat</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Avis Clients (Google) ================= -->
+    <section id="recensioni" class="section-padding bg-alt fade-in-section">
+      <div class="container">
+        <div class="reviews-wrapper">
+          <span class="kicker" data-i18n="reviews.kicker">Dicono di noi</span>
+          <h2 class="section-title" data-i18n="reviews.title">Le voci della pizzeria</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;" data-i18n="reviews.subtitle">
+            Recensioni reali dei nostri clienti su Google.
+          </p>
+
+          <!-- Slider Card -->
+          <div id="reviews-slider-box" class="review-slider-box">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- Controls: Arrows & Dots -->
+          <div class="reviews-nav">
+            <button class="review-arrow-btn" onclick="prevReview()" aria-label="Previous review">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <div id="reviews-dots" class="reviews-dots"></div>
+
+            <button class="review-arrow-btn" onclick="nextReview()" aria-label="Next review">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <a href="https://www.google.com/maps/place/PUNTO+PIZZA+3/@45.6633627,10.1941402,17z" target="_blank" rel="noreferrer" class="google-cta-link">
+            <span data-i18n="reviews.googleCta">Vedi tutte su Google</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Galerie Photo Bento ================= -->
+    <section id="galleria" class="section-padding fade-in-section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="kicker" data-i18n="gallery.kicker">Galleria</span>
+          <h2 class="section-title" data-i18n="gallery.title">Dal forno alla tavola</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;" data-i18n="gallery.subtitle">
+            Uno sguardo alle nostre creazioni.
+          </p>
+        </div>
+
+        <div id="gallery-bento-grid" class="gallery-bento-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Localisation & Horaires ================= -->
+    <section id="dove" class="section-padding bg-alt fade-in-section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <span class="kicker" data-i18n="location.kicker">Dove siamo</span>
+          <h2 class="section-title" data-i18n="location.title">Vieni a trovarci</h2>
+        </div>
+
+        <div class="location-grid">
+          <!-- Google Maps Iframe -->
+          <div class="map-wrapper">
+            <iframe 
+              title="PUNTO PIZZA 3 mappa" 
+              src="https://www.google.com/maps?q=PUNTO+PIZZA+3,+Via+Dante+Alighieri+55,+Sarezzo+BS&output=embed" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <!-- Business Info & Live Open/Closed Status Card -->
+          <div class="location-info-card">
+            <div>
+              <!-- Live Open/Closed Status Badge -->
+              <div id="live-status-badge" class="status-badge open">
+                <span class="status-pulse-dot"></span>
+                <span id="live-status-text" data-i18n="location.open">Aperto ora</span>
+              </div>
+
+              <!-- Address Info -->
+              <div class="address-row">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p class="address-text" data-i18n="location.address">Via Dante Alighieri, 55, 25068 Sarezzo (BS)</p>
+                  <a href="https://www.google.com/maps/place/PUNTO+PIZZA+3/@45.6633627,10.1941402,17z" target="_blank" rel="noreferrer" class="directions-link">
+                    <span data-i18n="location.directions">Indicazioni stradali</span>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Opening Hours Breakdown -->
+              <div class="hours-block">
+                <p class="hours-title" data-i18n="location.hoursTitle">Orari di apertura</p>
+                <div id="hours-list-container" class="hours-list">
+                  <!-- Dynamically populated via JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section Contacts ================= -->
+    <section id="contatti" class="section-padding contact-section fade-in-section">
+      <div class="contact-bg-wrapper">
+        <img src="assets/images/margherita.jpg" alt="PUNTO PIZZA sfondo" />
+        <div class="contact-bg-overlay"></div>
+      </div>
+
+      <div class="container contact-content">
+        <span class="kicker" data-i18n="contact.kicker">Contatti</span>
+        <h2 class="section-title" style="color: var(--flour);" data-i18n="contact.title">Prenota o ordina</h2>
+        <p class="section-subtitle" style="color: rgba(251, 248, 243, 0.85); margin-left: auto; margin-right: auto;" data-i18n="contact.subtitle">
+          Chiamaci, scrivici su WhatsApp o ordina online. Siamo qui per te.
+        </p>
+
+        <div class="contact-cards-grid">
+          <!-- Phone Card -->
+          <a href="tel:0305230993" class="contact-card">
+            <svg class="contact-card-icon" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="contact-card-label" data-i18n="contact.phone">Telefono</span>
+            <span class="contact-card-val">030 523 0993</span>
+          </a>
+
+          <!-- WhatsApp Card -->
+          <a href="https://wa.me/393896254460?text=Ciao%20PUNTO%20PIZZA%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noreferrer" class="contact-card">
+            <svg class="contact-card-icon" fill="#4ade80" viewBox="0 0 24 24">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+            </svg>
+            <span class="contact-card-label" data-i18n="contact.whatsapp">WhatsApp</span>
+            <span class="contact-card-val">389 625 4460</span>
+          </a>
+
+          <!-- Just Eat Card -->
+          <a href="https://www.justeat.it/restaurants-punto-pizza-3-sarezzo-25068/menu" target="_blank" rel="noreferrer" class="contact-card">
+            <svg class="contact-card-icon" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="contact-card-label" data-i18n="contact.justeat">Ordina online</span>
+            <span class="contact-card-val">Just Eat</span>
+          </a>
+
+          <!-- Facebook Card -->
+          <a href="https://www.facebook.com/PuntoPizza3/" target="_blank" rel="noreferrer" class="contact-card">
+            <svg class="contact-card-icon" fill="var(--ember)" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span class="contact-card-label" data-i18n="contact.facebook">Facebook</span>
+            <span class="contact-card-val">Punto Pizza 3</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Site Footer ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Brand & Tagline -->
+        <div>
+          <div class="brand-logo">
+            <div class="logo-img-wrapper">
+              <img src="assets/images/logo.jpg" alt="PUNTO PIZZA 3 Logo" />
+            </div>
+            <div>
+              <span class="brand-text-title" style="font-size: 1.35rem;">PUNTO <span class="text-ember">PIZZA</span> <span class="text-ember">3</span></span>
+              <span class="brand-text-sub">Sarezzo · Forno a legna</span>
+            </div>
+          </div>
+          <p class="footer-tagline" data-i18n="footer.tagline">Il punto d'incontro tra fuoco e farina.</p>
+          <div class="footer-pill">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 23c-4.97 0-9-4.03-9-9 0-4.14 2.82-7.62 6.74-8.65.41-.11.83.13.94.54.11.41-.13.83-.54.94C6.88 7.42 4.75 10.45 4.75 14c0 4 3.25 7.25 7.25 7.25s7.25-3.25 7.25-7.25c0-1.89-.73-3.66-2.06-4.99-.31-.31-.31-.82 0-1.13.31-.31.82-.31 1.13 0C19.98 9.53 20.75 11.69 20.75 14c0 4.97-4.03 9-8.75 9z"/>
+            </svg>
+            <span data-i18n="footer.pill">Forno a legna · 48h lievitazione</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Contacts -->
+        <div>
+          <p class="footer-heading" data-i18n="nav.contact">Contatti</p>
+          <ul class="footer-list">
+            <li>
+              <a href="tel:0305230993" class="footer-link-row">
+                <svg width="16" height="16" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>030 523 0993</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/393896254460?text=Ciao%20PUNTO%20PIZZA%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noreferrer" class="footer-link-row">
+                <svg width="16" height="16" fill="var(--ember)" viewBox="0 0 24 24">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+                </svg>
+                <span>389 625 4460</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/PuntoPizza3/" target="_blank" rel="noreferrer" class="footer-link-row">
+                <svg width="16" height="16" fill="var(--ember)" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Location -->
+        <div>
+          <p class="footer-heading" data-i18n="nav.location">Dove Siamo</p>
+          <a href="https://www.google.com/maps/place/PUNTO+PIZZA+3/@45.6633627,10.1941402,17z" target="_blank" rel="noreferrer" class="footer-link-row" style="align-items: flex-start;">
+            <svg width="18" height="18" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span data-i18n="location.address">Via Dante Alighieri, 55, 25068 Sarezzo (BS)</span>
+          </a>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem; color: hsl(var(--muted-foreground));" data-i18n="location.hours">11:30–14:00 · 17:30–23:00</p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> PUNTO PIZZA 3. <span data-i18n="footer.rights">Tutti i diritti riservati.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= Mobile Bottom Quick Bar ================= -->
+  <aside class="mobile-bottom-bar" aria-label="Quick Actions">
+    <div class="mobile-bottom-inner">
+      <a href="tel:0305230993" class="mobile-bottom-action">
+        <svg width="20" height="20" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span data-i18n="quick.phone">Chiama</span>
+      </a>
+      <a href="https://wa.me/393896254460?text=Ciao%20PUNTO%20PIZZA%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noreferrer" class="mobile-bottom-action">
+        <svg width="20" height="20" fill="#2d5a27" viewBox="0 0 24 24">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"/>
+        </svg>
+        <span data-i18n="quick.whatsapp">WhatsApp</span>
+      </a>
+      <a href="https://www.google.com/maps/place/PUNTO+PIZZA+3/@45.6633627,10.1941402,17z" target="_blank" rel="noreferrer" class="mobile-bottom-action">
+        <svg width="20" height="20" fill="none" stroke="var(--ember)" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span data-i18n="quick.maps">Mappa</span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="mobile-bottom-spacer"></div>
+
+  <!-- ================= Lightbox Modal for Images & Printed Menu ================= -->
+  <div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" onclick="closeLightbox(event)" aria-label="Close image">✕</button>
+      <img id="lightbox-img" src="" alt="Full view" />
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
