@@ -164,21 +164,24 @@
           )
           .join('');
 
+        // Lucide FolderOpen (active) or FileText (inactive)
+        const iconSvg = isActive
+          ? `<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2" /></svg>`
+          : `<svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg>`;
+
         return `
         <div class="menu-category-group ${isActive ? 'active' : ''}" id="cat-group-${cat.id}">
           <button class="menu-category-header" onclick="toggleCategory('${cat.id}')" aria-expanded="${isActive}">
             <div class="menu-category-left">
               <span class="category-icon-box">
-                <!-- Folder Icon -->
-                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                </svg>
+                ${iconSvg}
               </span>
               <span class="category-name">${catName}</span>
               <span class="category-count">(${cat.items.length})</span>
             </div>
-            <svg class="chevron-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            <!-- Lucide ChevronDown -->
+            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
             </svg>
           </button>
           <div class="menu-category-body">
@@ -211,11 +214,13 @@
     sliderBox.innerHTML = APP_DATA.reviews
       .map((rev, idx) => {
         const isActive = idx === currentReviewIdx;
+        
+        // Lucide Star
         const starsHtml = Array.from({ length: 5 })
           .map(
             (_, sIdx) => `
-          <svg class="star-icon ${sIdx < rev.rating ? 'filled' : ''}" viewBox="0 0 24 24">
-            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          <svg class="star-icon ${sIdx < rev.rating ? 'filled' : ''}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${sIdx < rev.rating ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
           </svg>
         `
           )
@@ -223,8 +228,10 @@
 
         return `
         <div class="review-slide ${isActive ? 'active' : ''}" data-index="${idx}">
-          <svg class="quote-icon" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          <!-- Lucide Quote -->
+          <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
+            <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
           </svg>
           <p class="review-text">"${rev.text}"</p>
           <div class="review-meta">
